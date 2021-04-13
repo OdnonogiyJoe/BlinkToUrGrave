@@ -1,0 +1,46 @@
+﻿<Page x:Class="rage_sava.OknoAuthor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:rage_sava"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Список авторов">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Авторы"/>
+        <ListView Grid.Row="1" ItemsSource="{Binding Authors}" SelectedItem="{Binding SelectedAuthor}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding AuthorId}"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Псевдоним" DisplayMemberBinding="{Binding SecondName}"/>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Дата Рождения" DisplayMemberBinding="{Binding Birthday}" Width="Auto" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Grid.Column="1" Text="Редактирование"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <TextBlock Text="Имя"/>
+            <TextBox Text="{Binding SelectedAuthor.FirstName}"/>
+            <TextBlock Text="Псевдоним"/>
+            <TextBox Text="{Binding SelectedAuthor.SecondName}"/>
+            <TextBlock Text="Фамилия"/>
+            <TextBox Text="{Binding SelectedAuthor.LastName}"/>
+            <TextBlock Text="Дата Рождения day/month/year"/>
+            <TextBox Text="{Binding SelectedAuthor.Birthday, StringFormat='{}{0:dd.MM.yyyy}'}"/>
+        </StackPanel>
+        <Button  Grid.Row="2" Grid.Column="1" Content="Сохранить изменения" Command="{Binding SaveAuthor}"/>
+        <Button Grid.Row="2" Content="Добавить автора" Command="{Binding AddAuthor}"/>
+    </Grid>
+</Page>
