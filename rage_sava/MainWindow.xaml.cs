@@ -23,8 +23,9 @@ namespace rage_sava
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainVM();
             Db.GetDb();//
+            DataContext = new MainVM();
+            
         }
     }
 }

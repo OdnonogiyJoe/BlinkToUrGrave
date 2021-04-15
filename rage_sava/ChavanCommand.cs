@@ -7,7 +7,6 @@ namespace rage_sava
 {
     public class ChavanCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
 
         Action action;
 
@@ -15,6 +14,8 @@ namespace rage_sava
         {
             this.action = action;
         }
+
+        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {

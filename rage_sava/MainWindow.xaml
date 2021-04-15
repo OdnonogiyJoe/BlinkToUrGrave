@@ -13,16 +13,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Menu>
-                <MenuItem Header="kn1p">
+                <MenuItem Header="Tree">
                     <MenuItem Header="Книги" Command="{Binding OpenBooks}"/>
                     <MenuItem Header="Авторы" Command="{Binding OpenAuthors}"/>
                     <MenuItem Header="Издательства" Command="{Binding OpenPublishers}"/>
                 </MenuItem>
-                <MenuItem Header="kn2p">
+                <MenuItem Header="Tree1">
                     <MenuItem Header="Жанры" Command="{Binding OpenGenres}"/>
                 </MenuItem>
             </Menu>
-
             <Frame Grid.Row="1" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>

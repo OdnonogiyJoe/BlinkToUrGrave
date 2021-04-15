@@ -25,7 +25,7 @@ namespace rage_sava
             LoadGenres();
             AddGenre = new ChavanCommand(() =>
             {
-                var genre = new Genre { Name = "Имя" };
+                var genre = new Genre { Name = "Название" };
                 db.Genres.Add(genre);
                 SelectedGenre = genre;
                 LoadGenres();
